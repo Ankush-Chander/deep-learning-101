@@ -1,7 +1,7 @@
 import time
 import traceback
 
-from icecream import ic
+# from icecream import ic
 from line_profiler import LineProfiler
 
 lp = LineProfiler()
@@ -10,7 +10,7 @@ grid_shape = (640, 640)
 
 # profile is added in builtin namespace when run via kernprof
 # usage:  kernprof -l -v diffusion_python.py
-@profile
+# @profile
 def evolve(grid, dt, out, D=1.0):
     xmax, ymax = grid_shape
 
@@ -47,8 +47,8 @@ def run_experiment(num_iterations):
     start = time.time()
     # ic(grid)
     for i in range(num_iterations):
-        ic(i)
-        ic(type(grid))
+        # ic(i)
+        # ic(type(grid))
         grid = evolve(grid, 0.1, next_grid)
         grid, next_grid = next_grid, grid
 
@@ -56,4 +56,4 @@ def run_experiment(num_iterations):
 
 
 if __name__ == '__main__':
-    run_experiment(num_iterations=100)
+    run_experiment(num_iterations=500)
